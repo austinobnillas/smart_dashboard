@@ -15,6 +15,11 @@ app.use(cors({ origin: process.env.DB_ORIGIN, credentials: true }));
 // require("./config/mongoose.config");
 // require("./routes/communityPCs.routes")(app);
 
+app.get('/api/test', (req, res) => {
+    console.log("test")
+    res.json({test: "test"})
+} )
+
 app.listen(port, () => {
     console.log(`Server Running! Port:`, port)
 })
