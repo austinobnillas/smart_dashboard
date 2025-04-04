@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 
 const Header = () => {
-    const [time, setTime] = useState<string>("Waiting for time...");
+    const [time, setTime] = useState<string>("...");
     const [ws, setWs] = useState<WebSocket | null>(null);
 
     useEffect(() => {
