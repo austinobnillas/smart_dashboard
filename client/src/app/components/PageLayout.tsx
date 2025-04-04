@@ -31,9 +31,6 @@ return (
     <div className="min-h-screen flex flex-col">
         <Header />
         <Section />
-    <footer>
-
-    </footer>
     </div>
     
 );

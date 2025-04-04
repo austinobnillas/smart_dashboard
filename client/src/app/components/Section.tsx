@@ -24,17 +24,17 @@ const Section = () => {
         }
     }, []);
     return (
-        <main className="flex flex-1 justify-between p-5 gap-5">
+        <main className="flex flex-col lg:flex-row h-screen p-5 gap-5">
             <section 
-            className={`flex-1 p-5 bg-green-200 text-center border border-gray-300 rounded-lg transition-opacity delay-300 duration-2000
+            className={`flex-1 p-5 bg-gray-600 text-center border border-gray-300 rounded-lg transition-opacity delay-300 duration-2000
             ${show ? "opacity-100" : "opacity-0"
             }`}>
         
             </section>
-            <section className={`flex-1 p-5 bg-red-200 text-center border border-gray-300 rounded-lg transition-opacity delay-600 duration-2000
+            <section className={`flex-1 p-5 bg-gray-500 text-center border border-gray-300 rounded-lg transition-opacity delay-600 duration-2000
             ${show ? "opacity-100" : "opacity-0"
             }`}>Section 2</section>
-            <section className={`flex-1 p-5 bg-blue-200 text-center border border-gray-300 rounded-lg transition-opacity delay-900 duration-2000
+            <section className={`flex-1 p-5 bg-gray-600 text-center border border-gray-300 rounded-lg transition-opacity delay-900 duration-2000
             ${show ? "opacity-100" : "opacity-0"
             }`}>Section 3</section>
         </main>
