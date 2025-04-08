@@ -1,3 +1,51 @@
-./node_modules/
+# Ignore env files
+client/.env
+server/.env
 
+# Ignore node_modules directories
+client/node_modules/
+server/node_modules/
+
+# Optional: ignore logs
+*.log
+
+# Optional: ignore system files
+.DS_Store
 .env
+
+client/.pnp
+client/.pnp.*
+client/.yarn/*
+client/!.yarn/patches
+client/!.yarn/plugins
+client/!.yarn/releases
+client/!.yarn/versions
+
+# testing
+client/coverage
+
+# next.js
+client/.next/
+client/out/
+
+# production
+client/build
+
+# misc
+client/.DS_Store
+client/*.pem
+
+# debug
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+
+# vercel
+client/.vercel
+
+# typescript
+client/*.tsbuildinfo
+client/next-env.d.ts
