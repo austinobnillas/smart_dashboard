@@ -8,35 +8,39 @@ module.exports = {
     },
     getOneUser: async (req) => {
         try {
+            //sql query that queires the db for the username, each username is unique, destructured returned data array 
             const [data] = await pool.promise().query(`SELECT * FROM users WHERE BINARY username LIKE ? `, [req.username])
-            return data
-            } catch {
-            (err) => console.log(err)
+            //return single user object
+            return data[0]
+            } catch (err) {
+                console.error("Error fetching user:", err);
+                throw err;
         }
     },
     registerUser: async (username, pw) => {
             try {
-                const [result] = await pool.promise().query(
+                //insert user into database
+                const [newUser] = await pool.promise().query(
                     `INSERT INTO users (username, pw) VALUES (?, ?)`,
                     [username, pw]
                 );
-                return result;
+                return {msg: "Account created Successfully "};
             } catch (err) {
                 (err) => console.log(err);
                 throw err;
             }
         },
-    login: async () => {
-        pass
-    },
     //this this temporary
     delete: async (req, res) => {
         try {
             const deleted = await pool.promise().query("DELETE FROM users WHERE id = ?", [req.id]);
             console.log(deleted);
             return {msg: "deleted", deleted}
-            } catch {
-            (err) => console.log(err)
+            } catch (err) {
+                console.log("Error caught:", err);
+
+                // Respond with an error message and status code
+                res.status(500).send({ msg: "An error occurred while deleting the user", error: err });
         }
     }
 

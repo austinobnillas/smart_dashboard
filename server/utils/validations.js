@@ -14,4 +14,20 @@ const validateUserData = (data) => {
         errors
     };
 };
-module.exports = { validateUserData };
+const validateNoteData = (data) => {
+    const errors = [];
+
+    if (!data.title || data.title.trim().length == 0) {
+        errors.push("Title cannote be blank");
+    }
+
+    if (!data.note || data.note.length == 0) {
+        errors.push("Note cannot be blank");
+    }
+
+    return {
+        valid: errors.length === 0,
+        errors
+    };
+};
+module.exports = { validateUserData, validateNoteData };

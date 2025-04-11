@@ -1,5 +1,6 @@
 const { authenticate } = require("../config/jwt.config");
 const User = require("../controllers/user.controller");
+const Note = require("../controllers/note.controller");
 
 module.exports = app => {
     //user functions, login/logout
@@ -8,4 +9,8 @@ module.exports = app => {
     app.delete('/api/delete', User.delete)
     app.post('/api/login', User.login)
     app.post('/api/logout', User.logout)
+    
+    app.post('/api/addnote', authenticate, Note.addNote)
+    app.get('/api/notes', authenticate, Note.getUserNotes)
+    app.delete('/api/deletenote/:id', authenticate, Note.deleteNotes)
 }
