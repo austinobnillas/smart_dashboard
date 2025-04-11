@@ -13,7 +13,7 @@ module.exports = {
             //return single user object
             return data[0]
             } catch (err) {
-                console.error("Error fetching user:", err);
+                console.log(err);
                 throw err;
         }
     },
@@ -26,7 +26,7 @@ module.exports = {
                 );
                 return {msg: "Account created Successfully "};
             } catch (err) {
-                (err) => console.log(err);
+                console.log(err);
                 throw err;
             }
         },
@@ -37,10 +37,8 @@ module.exports = {
             console.log(deleted);
             return {msg: "deleted", deleted}
             } catch (err) {
-                console.log("Error caught:", err);
-
-                // Respond with an error message and status code
-                res.status(500).send({ msg: "An error occurred while deleting the user", error: err });
+                console.log(err);
+                throw err;
         }
     }
 

@@ -64,7 +64,9 @@ module.exports = {
             }
         }
         catch(err){
-            res.status(400).json(err);
+            console.log("Error caught:", err);
+            // Respond with an error message and status code
+            res.status(500).send({ msg: "An error occurred:", error: err });
         }
     },
     //logout clears cookie
@@ -77,8 +79,10 @@ module.exports = {
         try {
             const deleted = await User.delete(req.body)
             res.status(200).send(deleted)
-        } catch {
-            (err) => {console.log(err)}
+        } catch (err){
+            console.log("Error caught:", err);
+            // Respond with an error message and status code
+            res.status(500).send({ msg: "An error occurred while deleting the user", error: err });
         }
     }
 

@@ -16,7 +16,7 @@ module.exports = {
                 return newNote[0];
 
             } catch (err) {
-                (err) => console.log(err);
+                console.log(err);
                 throw err;
             }
         },
@@ -29,7 +29,8 @@ module.exports = {
             // return array of note objects
             return notes;
         } catch (err){
-            (err) => console.log(err);
+            console.log(err);
+            throw err;
         }
     },
     deleteNote: async (noteId, userId) => {
