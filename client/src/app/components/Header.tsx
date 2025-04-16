@@ -7,7 +7,6 @@ const Header = () => {
 
     useEffect(() => {
         const socket = new WebSocket("ws://localhost:8001");
-    
         socket.onopen = () => console.log("Connected to WebSocket");
         socket.onmessage = (event) => {
             setTime(event.data); // Update the time every second
@@ -16,10 +15,12 @@ const Header = () => {
     
         setWs(socket);
         return () => socket.close();
+        
+    
     }, []);
 
     return (
-        <header className="flex justify-between items-center p-5 m-5 mb-0 rounded-xl  bg-gray-800 text-white">
+        <header className="flex justify-between items-center p-5 m-5 mb-0 rounded-xl border-3 border-gray-500 bg-neutral-100 text-black">
             <h1>Hello, Name</h1>
             <div>
             <p>{time}</p>

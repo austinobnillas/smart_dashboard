@@ -9,7 +9,7 @@ module.exports = app => {
     app.delete('/api/delete', User.delete)
     app.post('/api/login', User.login)
     app.post('/api/logout', User.logout)
-    
+    //note functions
     app.post('/api/addnote', authenticate, Note.addNote)
     app.get('/api/notes', authenticate, Note.getUserNotes)
     app.delete('/api/deletenote/:id', authenticate, Note.deleteNotes)

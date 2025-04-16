@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Newsreader } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Newsreader({
-  variable: "--font-newsreader-sans",
+const geistSans = Nunito({
+  variable: "--font-Nunito-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Newsreader({
-  variable: "--font-newsreader-mono",
+const geistMono = Nunito({
+  variable: "--font-Nunito-mono",
   subsets: ["latin"],
 });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-h-screen`}
       >
         {children}
       </body>
