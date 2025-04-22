@@ -1,9 +1,8 @@
-import Notes from "./components/Notes";
-import News from "./components/News";
-import Header from "./components/Header";
-import Weather from "./components/Weather";
-import Stocks from "./components/Stocks";
-
+import Notes from "../components/Notes";
+import News from "../components/News";
+import Header from "../components/Header";
+import Weather from "../components/Weather";
+import Stocks from "../components/Stocks";
 const api_key = process.env.NY_TIMES_API_KEY
 
 export default async function Home() {
@@ -19,6 +18,7 @@ export default async function Home() {
   } catch (err){
     console.log(err)
   }
+
 
   return (
     <main className="h-screen w-screen flex flex-col h-lg:overflow-hidden text-black">

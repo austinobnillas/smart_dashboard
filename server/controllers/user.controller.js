@@ -48,7 +48,7 @@ module.exports = {
             const user = await User.getOneUser({username: req.body.username});
             //if user is undefined or null, if the above function doesn't find a matching username
             if (!user) {
-                return res.status(400).json({msg: "Invalid username or password1"})
+                return res.status(400).json({msg: "Invalid username or password"})
             }
             //using bcrypt to compare the inputted password with the hashed password in the db
             const correctPassword = await bcrypt.compare(req.body.pw, user.pw);
@@ -83,6 +83,20 @@ module.exports = {
             console.log("Error caught:", err);
             // Respond with an error message and status code
             res.status(500).send({ msg: "An error occurred while deleting the user", error: err });
+        }
+    },
+    getUser: async (req, res) => {
+        try {
+            console.log(req.cookies)
+            //get signed in user's notes, decoding cookie to get the username 
+            const decoded = jwt.decode(req.cookies.userToken, secret)
+            console.log(decoded)
+            const userData = await User.getOneUser(decoded)
+            res.status(200).json({ username: userData.username });
+
+        } catch (err){
+            res.status(400).json(err);
+            console.log(err)
         }
     }
 

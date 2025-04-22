@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
 const geistSans = Nunito({
@@ -26,8 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased max-h-screen`}
-      >
+      ><AuthProvider>
         {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
-"use client";
+import RegisterForm from "../../components/auth/RegisterForm";
 
-export default function Register() {
+export default function Register () {
     
     return (
-        <div className="min-h-screen flex flex-col h-screen">
-        test
+        <div className="min-h-screen flex items-center justify-center w-screen h-screen">
+            <RegisterForm />
         </div>
         
     );
