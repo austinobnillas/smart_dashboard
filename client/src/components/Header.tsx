@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { logoutUser } from "@/lib/authService";
+// import { logoutUser } from "@/lib/authService";
 import { useAuth } from "@/context/AuthContext";
 import { useState, useEffect } from 'react';
 
@@ -30,7 +30,11 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-            await logoutUser();
+            await fetch("/api/auth/logout", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+            });
             localStorage.removeItem("userToken");
             setLoggedIn(false);
             setUser("");

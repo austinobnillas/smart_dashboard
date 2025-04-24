@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { registerUser } from '@/lib/authService';
+// import { registerUser } from '@/lib/authService';
 import { useAuth } from "@/context/AuthContext";
 
 export default function RegisterForm() {
@@ -26,10 +26,23 @@ export default function RegisterForm() {
             return;
         }
         try {
-            await registerUser(username, password);
-            setUser(username)
-            setLoggedIn(true)
-            router.push("/"); // Redirect on success
+            const res = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ username, password }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                throw {
+                    message: data.msg || "Login failed",
+                    errors: data.errors || [],
+                };
+            }
+
+            setUser(username);
+            setLoggedIn(true);
+            router.push("/");
         } catch (err: any) {
             console.log("THIS", err);
             setError(err.message || "Registration failed.");
@@ -101,6 +114,10 @@ export default function RegisterForm() {
                 Already have an account?{" "}
                 <a className="text-gray-800 font-medium underline hover:text-gray-600" href="/login">
                     Login here
+                </a>
+                {" "}|{" "}
+                <a className="text-gray-800 font-medium underline hover:text-gray-600" href="/">
+                        Dashboard
                 </a>
             </p>
         </form>

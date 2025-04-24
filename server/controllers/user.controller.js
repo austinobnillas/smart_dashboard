@@ -60,7 +60,9 @@ module.exports = {
                 const userToken = jwt.sign({
                     username: user.username
                 }, secret, {expiresIn: "2h"});
-                res.status(200).cookie('userToken', userToken, {httpOnly: true, maxAge: 7200000}).json({msg: "Successful login!", user: user.username, token: userToken})
+                res.status(200)
+                .cookie('userToken', userToken, {httpOnly: true, maxAge: 7200000})
+                .json({msg: "Successful login!", user: user.username, token: userToken})
             }
         }
         catch(err){

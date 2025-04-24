@@ -87,7 +87,7 @@ return (
                 key={symbol}
                 className="bg-white p-4 rounded-lg shadow-md flex items-center justify-between space-x-4"
             >
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                 <h2 className="font-semibold text-lg">{symbol}</h2>
                 <p className="text-sm text-gray-600">
                     Current Price:{" "}

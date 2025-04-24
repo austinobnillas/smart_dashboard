@@ -1,11 +1,10 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '@/lib/authService'; // <-- make sure this path is correct
 import { useAuth } from "@/context/AuthContext";
 
 export default function LoginForm() {
-    const { loggedIn, user, setLoggedIn, setUser } = useAuth();
+    const { setLoggedIn, setUser } = useAuth();
     const router = useRouter();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -16,17 +15,33 @@ export default function LoginForm() {
         e.preventDefault();
         setError("");
         setValidationErrors([]);
-
+        console.log(username)
         if (!username || !password) {
             setError("All fields are required.");
             return;
         }
 
         try {
-            await loginUser(username, password);
-            setUser(username)
-            setLoggedIn(true)
-            router.push("/"); // redirect after login
+            
+            const res = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw {
+                    message: data.msg || "Login failed",
+                    errors: data.errors || [],
+                };
+            }
+
+            setUser(username);
+            setLoggedIn(true);
+            router.push("/");
         } catch (err: any) {
             console.error("Login error:", err);
             setError(err.message || "Login failed.");
@@ -88,6 +103,10 @@ export default function LoginForm() {
                 Don't have an account?{" "}
                 <a className="text-gray-800 font-medium underline hover:text-gray-600" href="/register">
                     Register
+                </a>{" "}
+                |{" "}
+                <a className="text-gray-800 font-medium underline hover:text-gray-600" href="/">
+                    Dashboard
                 </a>
             </p>
         </form>

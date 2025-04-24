@@ -26,12 +26,29 @@ const Notes = () => {
         console.log("Error fetching user:", err);
         }
     };
+    const getUserNotes = async () => {
+        try {
+            const res = await fetch("http://localhost:8000/api/notes", {
+                method: "GET",
+                credentials: "include",
+            });
+    
+            if (!res.ok) throw new Error("User Notes fetch failed");
+    
+            const data = await res.json();
+            console.log(data.data);
+            setDummyNote(data.data);
+            } catch (err) {
+            console.log("Error fetching user:", err);
+            }
+    }
 
     useEffect(() => {
         setShow(true);
         if (!loggedIn) {
-        getDummyNotes();
+            getDummyNotes();
         }
+        
     }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -90,7 +107,7 @@ const Notes = () => {
 
         {/* Notes Display */}
         {!loggedIn && (
-            <div className="flex-1 mt-5 overflow-y-auto max-h-[65vh] space-y-4 pr-2">
+            <div className="flex-1 mt-5 overflow-y-auto max-h-[100vh] space-y-4 pr-2">
             {dummyNote.map((note, index) => (
                 <div
                 key={index}
