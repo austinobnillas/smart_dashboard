@@ -36,7 +36,7 @@ module.exports = {
     deleteNote: async (noteId, userId) => {
         try {
             // check if there is a user id with correlating note id
-            const noteCheck = await pool.promise().query("SELECT * FROM users WHERE id = ? AND user_id = ?", [noteId, userId]);
+            const noteCheck = await pool.promise().query("SELECT * FROM notes WHERE id = ? AND user_id = ?", [noteId, userId]);
             if (noteCheck.length === 0) {
                 // If no note found or the note doesn't belong to the user
                 return { msg: "You can only delete your own notes.", error: 1};

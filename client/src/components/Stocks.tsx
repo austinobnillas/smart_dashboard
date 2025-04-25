@@ -33,7 +33,7 @@ useEffect(() => {
     socket.onmessage = (event) => {
         try {
             const message = JSON.parse(event.data);
-            console.log("📨 Message from WebSocket server:", message);
+            // console.log("📨 Message from WebSocket server:", message);
 
             if (message.mock) {
                 setIsMock(true); // <- set mock mode
@@ -58,7 +58,7 @@ useEffect(() => {
             }
         };
 
-    socket.onerror = (err) => console.error("WebSocket error:", err);
+    socket.onerror = (err) => console.log("WebSocket error:", err);
     socket.onclose = () => console.log("WebSocket closed");
 
     return () => socket.close();

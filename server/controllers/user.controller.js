@@ -92,7 +92,6 @@ module.exports = {
             console.log(req.cookies)
             //get signed in user's notes, decoding cookie to get the username 
             const decoded = jwt.decode(req.cookies.userToken, secret)
-            console.log(decoded)
             const userData = await User.getOneUser(decoded)
             res.status(200).json({ username: userData.username });
 
@@ -100,6 +99,6 @@ module.exports = {
             res.status(400).json(err);
             console.log(err)
         }
-    }
+    },
 
 }

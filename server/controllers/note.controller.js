@@ -11,7 +11,6 @@ module.exports = {
             //get signed in user's notes, decoding cookie to get the username 
             const decoded = jwt.decode(req.cookies.userToken, secret)
             const userData = await User.getOneUser(decoded)
-
             const note = await Note.getNotes(userData.id)
             // return the array of notes
             res.status(200).send(note)

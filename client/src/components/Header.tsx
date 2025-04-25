@@ -39,6 +39,7 @@ const Header = () => {
             setLoggedIn(false);
             setUser("");
             router.push("/");
+            window.location.reload();
         } catch (err) {
             console.error("Logout failed:", err);
         }
@@ -49,7 +50,7 @@ const Header = () => {
     };
 
     useEffect(() => {
-        getUsername();
+        // getUsername();
 
         const socket = new WebSocket("ws://localhost:8001");
         socket.onopen = () => console.log("Connected to WebSocket");
