@@ -11,9 +11,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const port = process.env.SERVER_PORT;
-const wsPort = process.env.WS_PORT;
-const wsStockPort = process.env.WS_STOCK_PORT 
-const setupWebSocket = require("./config/websocket");
+
 const setupStockWebSocket = require("./config/websocket");
 
 app.use(cookieParser());
@@ -32,5 +30,5 @@ app.listen(port, () => {
 
 //web socket 
 const server = http.createServer(app);
-setupWebSocket.setupWebSocket(wsPort); 
+const wsStockPort = process.env.WS_STOCK_PORT 
 setupStockWebSocket.setupStockWebSocket(wsStockPort); 

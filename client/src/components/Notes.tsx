@@ -118,7 +118,7 @@ const Notes = () => {
             <div className="flex flex-row justify-between items-center">
                 <h1 className="text-xl font-bold">Notes</h1>
                 <button
-                    onClick={() => setShowForm(!showForm)}
+                    onClick={() => {if(loggedIn) {setShowForm(!showForm)}}}
                     className="text-2xl font-bold px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 transition"
                 >
                     +
