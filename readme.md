@@ -11,11 +11,11 @@ A powerful and dynamic web application designed for managing notes, viewing news
 ## Samples:
 ### Main UI:
 ![MainUI](docs/screenshots/MainUIGIF.gif)
+### Stock Widget:
+![MainUI](docs/screenshots/StockPricesGif.gif)
 ### Registration:
 ![MainUI](docs/screenshots/registrationGIF.gif)
 ### Login:
 ![MainUI](docs/screenshots/LoginGif.gif)
 ### Notes:
 ![MainUI](docs/screenshots/notesGif.gif)
-### Stock Widget:
-![MainUI](docs/screenshots/StockPricesGif.gif)
