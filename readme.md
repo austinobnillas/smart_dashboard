@@ -16,6 +16,6 @@ A powerful and dynamic web application designed for managing notes, viewing news
 ### Login:
 ![MainUI](docs/screenshots/LoginGif.gif)
 ### Notes:
-![MainUI](docs/screenshots/notesGif.gif
+![MainUI](docs/screenshots/notesGif.gif)
 ### Stock Widget:
 ![MainUI](docs/screenshots/StockPricesGif.gif)
