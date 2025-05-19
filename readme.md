@@ -9,14 +9,13 @@ A powerful and dynamic web application designed for managing notes, viewing news
 - **Responsive UI**: TailwindCSS for a sleek and responsive design.
 
 ## Samples:
-**Main UI**
+### Main UI:
 ![MainUI](docs/screenshots/MainUIGIF.gif)
-
-**Registration:**
+### Registration:
 ![MainUI](docs/screenshots/registrationGIF.gif)
-**Login:**
+### Login:
 ![MainUI](docs/screenshots/LoginGif.gif)
-**Notes:**
+### Notes:
 ![MainUI](docs/screenshots/notesGif.gif
-**Stock Widge:t**
+### Stock Widget:
 ![MainUI](docs/screenshots/StockPricesGif.gif)
