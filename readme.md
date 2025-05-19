@@ -7,3 +7,16 @@ A powerful and dynamic web application designed for managing notes, viewing news
 - **User authentication**: Secure login system to manage personal notes.
 - **CRUD functionality**: Add, view, update, and delete notes seamlessly.
 - **Responsive UI**: TailwindCSS for a sleek and responsive design.
+
+## Samples:
+**Main UI**
+![MainUI](docs/screenshots/MainUIGIF.gif)
+
+**Registration:**
+![MainUI](docs/screenshots/registrationGIF.gif)
+**Login:**
+![MainUI](docs/screenshots/LoginGif.gif)
+**Notes:**
+![MainUI](docs/screenshots/notesGif.gif
+**Stock Widge:t**
+![MainUI](docs/screenshots/StockPricesGif.gif)

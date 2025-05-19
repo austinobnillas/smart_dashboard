@@ -14,7 +14,7 @@ const geistMono = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Data Pulse",
+  title: "Smart Dashboard",
   description: "Smart dashbaord with real time information",
 };
 

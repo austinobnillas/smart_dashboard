@@ -43,7 +43,7 @@ export default function LoginForm() {
             setLoggedIn(true);
             router.push("/");
         } catch (err: any) {
-            console.error("Login error:", err);
+            console.log("Login error:", err);
             setError(err.message || "Login failed.");
             setValidationErrors(err.errors || []);
         }
